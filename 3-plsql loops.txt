@@ -1,0 +1,18 @@
+set serveroutput on size 100000
+declare 
+        v_last_name varchar2(100); v_salary number(8, 2); v_min number(4); v_max number(4); v_cnt number(1); 
+begin
+        select min(employee_id), max(employee_id)   into v_min, v_max
+                    from employees;
+                    
+      for i in v_min..v_max loop
+               select count(*) into v_cnt from employees where employee_id = i;
+               if v_cnt = 1 then
+                        select last_name, salary
+                                into v_last_name, v_salary
+                           from employees
+                           where employee_id = i;
+                           dbms_output.put_line('emp id '||i||', last name : '||v_last_name||', salary = '||v_salary);
+               end if;
+      end loop;
+end;
