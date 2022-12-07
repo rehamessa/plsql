@@ -1,0 +1,24 @@
+declare
+        v_salary employees.salary%type; v_tax number(3); v_tax_value number(8, 2); v_net_salary number(10, 2);
+begin
+    select salary 
+            into v_salary
+       from employees
+       where employee_id = 12;
+       
+       if v_salary < 5000 then
+            v_tax := 0;
+       elsif v_salary < 10000 then
+              v_tax := 10;
+       elsif v_salary < 15000 then
+               v_tax := 15;
+        else 
+              v_tax := 20;
+        end if;             
+        dbms_output.put_line('Salary = '||v_salary||', Tax % = '||v_tax);
+            v_tax_value := v_salary * v_tax / 100;
+            v_net_salary := v_salary - v_tax_value;
+            dbms_output.put_line('Tax value = '||v_tax_value||', net salary = '||v_net_salary);
+            -- v_sal := max(salary); 
+            -- select max(salary) into vv
+end;
