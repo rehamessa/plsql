@@ -1,0 +1,130 @@
+
+SQL*Plus: Release 11.2.0.2.0 Production on Sun Dec 4 09:57:51 2022
+
+Copyright (c) 1982, 2010, Oracle.  All rights reserved.
+
+SQL> conn sys/orcl as sysdba
+Connected.
+SQL> show user
+USER is "SYS"
+SQL> create user wallet identified by wallet;
+
+User created.
+
+SQL> drop user wallet;
+
+User dropped.
+
+SQL> create user wallet identified by wallet;
+
+User created.
+
+SQL> grant connect, resource to wallet;
+
+Grant succeeded.
+
+SQL> grant create view to wallet;
+
+Grant succeeded.
+
+SQL> revoke create view from wallet;
+
+Revoke succeeded.
+
+SQL> grant create view to wallet;
+
+Grant succeeded.
+
+SQL> grant create view to wallet with admin option;
+
+Grant succeeded.
+
+SQL> grant select on hr.countries to wallet;
+
+Grant succeeded.
+
+SQL> create role data_role;
+
+Role created.
+
+SQL> grant create sequence, create synonym to data_role;
+
+Grant succeeded.
+
+SQL> grant select, insert on hr.departments to data_role;
+
+Grant succeeded.
+
+SQL> grant data_role to wallet;
+
+Grant succeeded.
+
+SQL> grant update(department_name) on hr.departments to wallet;
+
+Grant succeeded.
+
+SQL> grant update(department_name) on hr.departments to wallet;
+
+Grant succeeded.
+
+SQL> grant all on hr.regions to public;
+
+Grant succeeded.
+
+SQL> create user omar identified by omar;
+
+User created.
+
+SQL> grant dba to omar;
+
+Grant succeeded.
+
+SQL> conn sys/orcl as sysdba
+Connected.
+SQL> conn / as sysdba
+Connected.
+SQL> show user
+USER is "SYS"
+SQL>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

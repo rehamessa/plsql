@@ -1,0 +1,92 @@
+
+SQL*Plus: Release 11.2.0.2.0 Production on Sun Dec 4 09:57:56 2022
+
+Copyright (c) 1982, 2010, Oracle.  All rights reserved.
+
+SQL> conn wallet/wallet
+ERROR:
+ORA-01045: user WALLET lacks CREATE SESSION privilege; logon denied
+
+
+SQL> conn wallet/wallet
+Connected.
+SQL> create table emps(emp_id number(4) );
+
+Table created.
+
+SQL> insert into emps(emp_id) values(201);
+
+1 row created.
+
+SQL> commit;
+
+Commit complete.
+
+SQL> create view emps_vu as select * from emps;
+create view emps_vu as select * from emps
+            *
+ERROR at line 1:
+ORA-01031: insufficient privileges
+
+
+SQL> create view emps_vu as select * from emps;
+
+View created.
+
+SQL> create view emps_vu as select * from emps;
+create view emps_vu as select * from emps
+            *
+ERROR at line 1:
+ORA-01031: insufficient privileges
+
+
+SQL> drop view emps_vu;
+
+View dropped.
+
+SQL> select country_name from countries where country_id ='US';
+select country_name from countries where country_id ='US'
+                         *
+ERROR at line 1:
+ORA-00942: table or view does not exist
+
+
+SQL> select country_name from hr.countries where country_id ='US';
+
+COUNTRY_NAME
+----------------------------------------
+United States of America
+
+SQL> conn wallet/wallet
+Connected.
+SQL> select department_name from hr.departments
+  2  where department_id = 40;
+
+DEPARTMENT_NAME
+------------------------------
+Human Resources
+
+SQL> update hr.departments
+  2  set department_name = 'HR'
+  3  where department_id = 40;
+update hr.departments
+          *
+ERROR at line 1:
+ORA-01031: insufficient privileges
+
+
+SQL> update hr.departments
+  2  set department_name = 'HR'
+  3  where department_id = 40;
+
+1 row updated.
+
+SQL> commit;
+
+Commit complete.
+
+SQL>
+
+
+
+

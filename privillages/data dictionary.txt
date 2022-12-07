@@ -1,0 +1,25 @@
+ --------------------------------------------------------
+--- data dictionary : show all db metadata 
+  SELECT *  FROM USER_TABLES;   --   ALL_tables   |  DBA_    |   v$_
+  SELECT * FROM USER_VIEWS;
+  SELECT * FROM USER_SEQUENCES;
+  
+  SELECT * FROM USER_CONSTRAINTS
+        where table_name = 'COUNTRIES';
+        
+  SELECT * FROM USER_INDEXES WHERE TABLE_NAME = 'UNITS';
+  
+  SELECT * FROM USER_SYNONYMS; 
+  
+  
+  SELECT * FROM USER_IND_COLUMNS;
+  SELECT * FROM USER_CONS_COLUMNS;
+  
+  SELECT * FROM USER_OBJECTS;
+  
+  SELECT * FROM DICTIONARY
+  WHERE UPPER(TABLE_NAME) like UPPER('%COMMENTS%');
+  
+  SELECT * FROM USER_TAB_COMMENTS;
+  SELECT * FROM USER_COL_COMMENTS;
+  
