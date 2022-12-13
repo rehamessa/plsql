@@ -1,2 +1,2 @@
 # plsql
-## >[SQL Subqueries]()
+## [SQL Subqueries]()
