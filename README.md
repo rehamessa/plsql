@@ -5,3 +5,6 @@
 * If_Else 
 * Case
 ## [4.loops](https://github.com/rehamessa/plsql/tree/main/loops)
+* Loop statement
+* while
+* for
